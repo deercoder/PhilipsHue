@@ -1,5 +1,5 @@
 /**
- * Created by Chang Liu(chang_liu@student.uml.edu) on 11/19/2014
+ * Created by Chang Liu(chang_liu@student.uml.edu) on 11/19/2016
  * This is test class for keyCommander Input.
  */
 
@@ -17,8 +17,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import com.uml.changliu.Keyboard.KeyCommander;
-import com.uml.changliu.restapi.GetRequest;
-import com.uml.changliu.restapi.PostRequest;
+import com.uml.changliu.RestApi.GetRequest;
+import com.uml.changliu.RestApi.PostRequest;
 
 public class test {
 

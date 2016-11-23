@@ -1,4 +1,9 @@
-package com.uml.philips.light;
+/**
+ * Created by Chang Liu(chang_liu@student.uml.edu) on 11/19/2016
+ * This is for Post Request for Hue Lights
+ * 
+ */
+package com.uml.philips.Light;
 
 public class LightControlPostRequest {
 

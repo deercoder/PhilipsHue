@@ -1,9 +1,9 @@
 /**
- * Created by Chang Liu(chang_liu@student.uml.edu) on 11/19/2014
+ * Created by Chang Liu(chang_liu@student.uml.edu) on 11/19/2016
  * This is Light state parser, used for parsing the light's various status
  * 
  */
-package com.uml.changliu.parser;
+package com.uml.changliu.Parser;
 
 import org.json.JSONException;
 import org.json.JSONObject;

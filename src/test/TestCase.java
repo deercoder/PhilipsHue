@@ -1,15 +1,22 @@
+/**
+ * Created by Chang Liu(chang_liu@student.uml.edu) on 11/19/2016
+ * This is for Test Cases for ALL classes and Functions.
+ * 
+ */
 package test;
 
+import java.awt.Color;
 import java.io.IOException;
 
 import org.json.JSONObject;
 
-import com.uml.changliu.parser.LightStateParser;
-import com.uml.changliu.restapi.GetRequest;
-import com.uml.changliu.restapi.PostRequest;
-import com.uml.changliu.restapi.PutRequest;
-import com.uml.philips.light.LightControlPostRequest;
-import com.uml.philips.light.LightControlPutRequest;
+import com.uml.changliu.Parser.LightStateParser;
+import com.uml.changliu.RestApi.GetRequest;
+import com.uml.changliu.RestApi.PostRequest;
+import com.uml.changliu.RestApi.PutRequest;
+import com.uml.changliu.Utility.RGB2HSL;
+import com.uml.philips.Light.LightControlPostRequest;
+import com.uml.philips.Light.LightControlPutRequest;
 
 public class TestCase {
 
@@ -112,16 +119,28 @@ public class TestCase {
 	    String response;
 	    
 		try {
-			for(int i = 0; i < 65535; i = i + 5000) {
+/*			for(int i = 0; i < 65535; i = i + 5000) {
 				body = aaa.getLightColorBody(254, 254, i);
 				response = example4.put(startUrl, body);
 			    System.out.println(response);
 			    Thread.sleep(2000);
-			}
+			}*/
+			
+			RGB2HSL rh = new RGB2HSL();
+			float hsl[] = null;
+			hsl = rh.fromRGB(new Color(128, 128, 128), hsl);
+			System.out.println(hsl[0] +  "," + hsl[1] + "," + hsl[2]);
+			
+			int PhilipsHueValue = (int)(hsl[0] * 65535);
+			int PhilipsSaturation = (int)(hsl[1] * 255);
+			int PhilipsBrightness = (int)(hsl[2] * 255);
+			System.out.println(PhilipsHueValue + ", " + PhilipsSaturation + ", " + PhilipsBrightness);
+			
+			body = aaa.getLightColorBody(PhilipsSaturation, PhilipsBrightness, PhilipsHueValue);
+			response = example4.put(startUrl, body);
+		    System.out.println(response);
 
 		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}

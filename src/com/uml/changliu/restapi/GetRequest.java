@@ -1,9 +1,9 @@
 /**
- * Created by Chang Liu(chang_liu@student.uml.edu) on 11/19/2014
+ * Created by Chang Liu(chang_liu@student.uml.edu) on 11/19/2016
  * This is GET Request
  * 
  */
-package com.uml.changliu.restapi;
+package com.uml.changliu.RestApi;
 
 import java.io.IOException;
 import okhttp3.OkHttpClient;
