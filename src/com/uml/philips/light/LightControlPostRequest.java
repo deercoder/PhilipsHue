@@ -5,12 +5,12 @@
  */
 package com.uml.philips.Light;
 
+import com.uml.changliu.Credential.Credential;
+
 public class LightControlPostRequest {
 
-	public static String USER_ID = "VeHdsMjs9ECEagi9uYGT8D2TdhRUKDsCeMcISGHB";
-	public static String BASE_PATH = "http://192.168.1.100";
-	public static String QUERY_LIGHT_STATE = "";
-
+	public static String USER_ID = Credential.LightBridgeSettings.getUserID();
+	public static String BASE_PATH = Credential.LightBridgeSettings.getHost();
 	
 	
 	public String getUserIdRequest() {
