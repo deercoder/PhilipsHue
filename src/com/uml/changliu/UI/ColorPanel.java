@@ -9,6 +9,9 @@ import java.awt.Robot;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.uml.changliu.API.LightInterfaceAPI;
+
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import java.awt.event.ActionListener;
@@ -104,16 +107,20 @@ public class ColorPanel extends JFrame {
 		colorChooser2.setBounds(494, 104, 462, 264);
 		contentPane.add(colorChooser2);
 	
-		/**   // Test code for color, verify if we can get the correct value of color for the selected patch
-		btnGetcolor = new JButton("getColor");
+		  // Test code for color, verify if we can get the correct value of color for the selected patch
+		btnGetcolor = new JButton("setLightsColor[Debug]");
 		btnGetcolor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(getFirstLightColor().toString());
+				Color a = getFirstLightColor();
+				Color b = getSecondLightColor();
+				new LightInterfaceAPI().setFirstLightColor(a);
+				new LightInterfaceAPI().setSecondLightColor(b);
 			}
 		});
-		btnGetcolor.setBounds(391, 46, 117, 29);
+		btnGetcolor.setBounds(391, 46, 175, 29);
 		contentPane.add(btnGetcolor);
-		**/
+		
 	}
 	
 	public Color getFirstLightColor() {
