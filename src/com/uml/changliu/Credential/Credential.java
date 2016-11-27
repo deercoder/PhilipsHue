@@ -44,7 +44,12 @@ public class Credential {
 			return mUserID;
 		}
 		
-		private static String mHostAddress = "http://192.168.1.100";
-		private static String mUserID = "VeHdsMjs9ECEagi9uYGT8D2TdhRUKDsCeMcISGHB";
+		
+		/// COMMENT FOR TP-LINK ROUTERS, for TP-LINK, all are 191.168.1.100
+		/// private static String mHostAddress = "http://192.168.1.100";
+		
+		// Settings for Netgear routers(NOTE, for netgear, it's different, mask is 10.0.0.2, but login page is 10.0.0.1
+		private static String mHostAddress = "http://10.0.0.2";
+		private static String mUserID = "5TEbsDKYA5Ias3FoP-nMsS03mTkKBwKGNDJuTClS";
 	}
 }

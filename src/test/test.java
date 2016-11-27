@@ -17,6 +17,8 @@ public class test {
 	
 	  public static void main(String[] args) throws IOException {
 
+		  		api.createLightUserId();
+		  
 		  		// Inquiry the light status
 		  		api.inqueryFirstLightStatus();
 		  		api.inquerySecondLightStatus();
@@ -24,6 +26,7 @@ public class test {
 		  		// turn on and set colors
 		  		api.setFirstLightColor(new Color(128,128, 128));
 		  		api.setSecondLightColor(new Color(132, 132, 132));
+		  		
 		  		
 		  		// set brightness(0~255)
 		  		api.setFirstLightness(200);
