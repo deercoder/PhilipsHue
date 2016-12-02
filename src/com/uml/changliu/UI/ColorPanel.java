@@ -1,23 +1,43 @@
 package com.uml.changliu.UI;
 
 import java.awt.AWTException;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Robot;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
 
+import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.uml.changliu.API.LightInterfaceAPI;
 
-import javax.swing.JButton;
-import javax.swing.JColorChooser;
-import java.awt.event.ActionListener;
-import java.awt.event.InputEvent;
-import java.awt.event.ActionEvent;
 
+/**
+ * 
+ * For color chooser, the shortcut to select the light is `Space` button, not `Enter` button, that's to say that
+ * once we used the arrow button to select each pixel, actually it's not selected, so if we use getColor() function
+ * for the specific light, then it should be our previous selected light.
+ * 
+ * To fix the above issue, we need to make sure that after navigating the color patches, the color is selected, then
+ * we should have several options: 1) find shortcuts like `Enter` or `Space` to select the color. 2) find the
+ * location of the selected patch, move the mouse to the patch, and then mock the mouse-click event. 3) store
+ * the mapping of each patch with the corresponding location index, then visit the array to fetch color.
+ * 
+ * All these three solutions are plausible at first glance, but it requires some impelmentation, the simplest one
+ * is just as I have said, use the `Space` button, this is inspired by the deom here: 
+ * 
+ * http://marc.info/?l=openjdk-swing-dev&m=135796973104220
+ * 
+ * I find the post and come across the hitKey, then find the `Space` button is the final shortcut to the selection.
+ * 
+ * @author cliu
+ *
+ */
 public class ColorPanel extends JFrame {
 
 	private JPanel contentPane;
@@ -114,8 +134,9 @@ public class ColorPanel extends JFrame {
 				System.out.println(getFirstLightColor().toString());
 				Color a = getFirstLightColor();
 				Color b = getSecondLightColor();
-				new LightInterfaceAPI().setFirstLightColor(a);
-				new LightInterfaceAPI().setSecondLightColor(b);
+				LightInterfaceAPI api = new LightInterfaceAPI();
+				api.setFirstLightColor(a);
+				api.setSecondLightColor(b);
 			}
 		});
 		btnGetcolor.setBounds(391, 46, 175, 29);
